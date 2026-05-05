@@ -1,0 +1,33 @@
+{
+  "ingredients": [
+    "4 (6 oz) salmon fillets, skin-on or skinless",
+    "1 cup soy sauce",
+    "Zest of 2 oranges",
+    "Juice of 2 oranges",
+    "6 tbsp brown sugar",
+    "4 garlic cloves, minced",
+    "1 tbsp fresh ginger, minced",
+    "1 tbsp white sesame seeds",
+    "Sliced scallions and toasted sesame seeds, for garnish (optional)"
+  ],
+  "steps": [
+    "Make the teriyaki sauce: simmer soy sauce, orange zest and juice, brown sugar, garlic, and ginger until reduced and syrupy; cool.",
+    "Marinate salmon in cooled sauce with sesame seeds for about 1 hour.",
+    "Remove salmon; bring remaining marinade to a boil to use as a glaze.",
+    "Cook salmon (grill or oven) until it reaches your preferred doneness, brushing with glaze during cooking.",
+    "Garnish with scallions and sesame seeds and serve."
+  ],
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 90,
+  "servings": "4",
+  "tips": "Bring any used marinade to a full boil before using as a glaze; avoid overcooking salmon by targeting an internal temp around 125-130 F for medium.",
+  "sources": [
+    {
+      "url": "https://www.traeger.com/recipes/teriyaki-salmon",
+      "title": "Teriyaki Salmon Recipe",
+      "publisher": "Traeger Grills"
+    }
+  ]
+}
+

@@ -1,0 +1,42 @@
+{
+  "ingredients": [
+    "2 cups sushi rice (short-grain Japanese rice)",
+    "2 1/2 cups water",
+    "1/3 cup rice vinegar",
+    "2 tbsp sugar",
+    "1 tsp fine salt",
+    "4 sheets nori",
+    "1/2 cucumber, seeded and cut into matchsticks",
+    "1 avocado, sliced",
+    "8 oz sushi-grade fish (e.g., salmon or tuna) or imitation crab",
+    "Wasabi (optional)",
+    "Soy sauce, for serving",
+    "Pickled ginger, for serving"
+  ],
+  "steps": [
+    "Rinse rice until water runs mostly clear. Cook rice with water (rice cooker or covered pot). Rest 10 minutes, then transfer to a wide bowl.",
+    "Warm rice vinegar, sugar, and salt until dissolved. Fold into hot rice while fanning to cool to room temperature.",
+    "Prep fillings (slice fish; cut vegetables). Set up a bamboo mat lined with plastic wrap.",
+    "Place nori shiny-side down. With wet hands, spread a thin, even layer of rice over nori, leaving 1 inch at the far edge. Add a thin line of wasabi if using.",
+    "Arrange fillings across the near third. Roll tightly using the mat, pressing to form a firm cylinder. Moisten the far edge to seal.",
+    "Slice into 6 to 8 pieces with a very sharp, wet knife. Serve with soy sauce and pickled ginger."
+  ],
+  "prep_time_minutes": 45,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 65,
+  "servings": "4 rolls (about 24-32 pieces)",
+  "tips": "Use sushi-grade fish from a reputable seller and keep everything very cold; wet your hands and knife to prevent sticking.",
+  "sources": [
+    {
+      "url": "https://www.foodandwine.com/how/how-make-sushi",
+      "title": "How to Make Sushi",
+      "publisher": "Food & Wine"
+    },
+    {
+      "url": "https://www.allrecipes.com/article/how-to-make-sushi-rolls/",
+      "title": "How to Make Homemade Sushi",
+      "publisher": "Allrecipes"
+    }
+  ]
+}
+

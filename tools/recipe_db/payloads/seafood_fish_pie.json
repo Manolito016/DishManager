@@ -1,0 +1,38 @@
+{
+  "ingredients": [
+    "400 g skinless white fish fillet",
+    "400 g skinless smoked haddock fillet",
+    "600 ml semi-skimmed milk",
+    "1 small onion, quartered",
+    "4 cloves",
+    "2 bay leaves",
+    "4 eggs",
+    "Small bunch parsley, chopped",
+    "100 g butter",
+    "50 g plain flour",
+    "Pinch grated nutmeg",
+    "1 kg floury potatoes, peeled and chunked",
+    "50 g cheddar, grated",
+    "Salt and black pepper, to taste"
+  ],
+  "steps": [
+    "Poach fish: put fish in a pan with 500 ml milk, add onion studded with cloves and bay leaves. Bring just to the boil, then simmer 8 minutes. Lift fish out and strain poaching milk; flake fish into a baking dish.",
+    "Hard-boil eggs for about 8 minutes, cool, peel and quarter; arrange over fish with parsley.",
+    "Make white sauce: melt 50 g butter, stir in flour 1 minute, then gradually whisk in cooled poaching milk. Bring to a boil and cook 5 minutes until thick; season with nutmeg, salt and pepper. Pour over fish.",
+    "Make topping: boil potatoes about 20 minutes, drain and mash with remaining butter and some milk.",
+    "Assemble and bake at 200 C/180 C fan/gas 6 for about 30 minutes until golden, topping with cheddar."
+  ],
+  "prep_time_minutes": 45,
+  "cook_time_minutes": 30,
+  "total_time_minutes": 75,
+  "servings": "4",
+  "tips": "Push mash to the edges to seal the filling; for best texture, flake fish into large chunks so it doesn't disappear into the sauce.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/fish-pie-four-steps",
+      "title": "Fish pie - in four steps",
+      "publisher": "BBC Good Food"
+    }
+  ]
+}
+

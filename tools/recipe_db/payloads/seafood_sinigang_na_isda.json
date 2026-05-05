@@ -1,0 +1,31 @@
+{
+  "ingredients": [
+    "2 lbs fish steaks or 2 whole medium fish, cleaned",
+    "12 pieces fresh or frozen kamias (bilimbi) (souring agent)",
+    "4 plum tomatoes, wedged",
+    "1 medium yellow onion, wedged",
+    "4 pieces long green pepper",
+    "6 to 8 leaves mustard greens",
+    "6 cups water",
+    "Salt and black pepper, to taste"
+  ],
+  "steps": [
+    "Bring water to a boil in a large pot.",
+    "Add tomatoes, kamias, and onion. Cover and boil about 8 minutes.",
+    "Add fish and long green peppers. Cover and cook over medium heat 10 to 12 minutes, until fish is cooked through.",
+    "Add mustard greens and season with salt and pepper. Simmer 1 to 2 minutes and serve hot with rice."
+  ],
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 25,
+  "total_time_minutes": 30,
+  "servings": "4",
+  "tips": "Simmer gently so the fish stays intact; taste the broth before seasoning since the souring agent can vary in intensity.",
+  "sources": [
+    {
+      "url": "https://panlasangpinoy.com/sinigang-na-isda-sa-kamias/",
+      "title": "Sinigang na Isda sa Kamias (Fish Sinigang)",
+      "publisher": "Panlasang Pinoy"
+    }
+  ]
+}
+

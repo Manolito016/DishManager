@@ -1,0 +1,36 @@
+{
+  "ingredients": [
+    "1 kg fish, cubed (firm white fish)",
+    "1 tbsp Thai green curry paste",
+    "1 tbsp oil",
+    "2 tbsp onions, chopped",
+    "1 tsp garlic, chopped",
+    "1 tsp ginger or galangal, chopped",
+    "1 cup coconut milk",
+    "2 tbsp coriander (cilantro), chopped",
+    "2 tbsp lemon or lime juice",
+    "1 tbsp palm sugar (or brown sugar)",
+    "Basil leaves, for garnish",
+    "Salt and pepper, to taste"
+  ],
+  "steps": [
+    "Marinate fish with half the curry paste, salt, pepper, and some citrus juice; set aside briefly.",
+    "Heat oil and saute onions, ginger/galangal, and garlic for 2-3 minutes.",
+    "Add remaining curry paste and cook 1-2 minutes until fragrant.",
+    "Add coconut milk and fish; simmer gently until fish is opaque and cooked through.",
+    "Stir in coriander, remaining citrus juice, and palm sugar; garnish with basil and serve with rice."
+  ],
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 15,
+  "total_time_minutes": 25,
+  "servings": "4",
+  "tips": "Simmer gently to keep fish pieces intact; taste and balance salty (fish sauce/salt), sour (lime), and sweet (palm sugar).",
+  "sources": [
+    {
+      "url": "https://food.ndtv.com/recipe-thai-fish-curry-501369",
+      "title": "Thai Fish Curry Recipe",
+      "publisher": "NDTV Food"
+    }
+  ]
+}
+

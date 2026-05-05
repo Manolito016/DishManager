@@ -1,0 +1,34 @@
+{
+  "ingredients": [
+    "140 g spaghetti",
+    "500 g fresh clams in shells",
+    "2 ripe tomatoes",
+    "Olive oil",
+    "1 fat garlic clove, chopped",
+    "1 small fresh red chilli, finely chopped",
+    "Splash of white wine",
+    "Chopped parsley",
+    "Salt and black pepper, to taste"
+  ],
+  "steps": [
+    "Rinse clams well in several changes of cold water; discard any open or damaged.",
+    "Peel and deseed tomatoes, then chop the flesh.",
+    "Cook spaghetti according to package directions.",
+    "Heat olive oil in a large pan; briefly fry garlic and chilli. Add tomatoes, then clams and a splash of wine; bring to the boil.",
+    "Cover and cook 3 to 4 minutes until clams open (discard any that stay shut).",
+    "Drain pasta, add to the clam pan with parsley, toss and serve."
+  ],
+  "prep_time_minutes": 15,
+  "cook_time_minutes": 12,
+  "total_time_minutes": 27,
+  "servings": "2",
+  "tips": "Salt clams and pasta water carefully since clams add briny seasoning; keep the pan covered so clams steam open quickly.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/spaghetti-alle-vongole-0",
+      "title": "Spaghetti alle vongole",
+      "publisher": "BBC Good Food"
+    }
+  ]
+}
+

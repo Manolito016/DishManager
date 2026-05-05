@@ -1,0 +1,35 @@
+{
+  "ingredients": [
+    "2 tsp oil",
+    "1 garlic clove, crushed",
+    "1 spring onion, finely chopped",
+    "2 tsp finely chopped fresh ginger",
+    "1 green chilli, deseeded and finely chopped",
+    "Juice of 1/2 lime",
+    "100 g raw prawns",
+    "165 ml can coconut milk",
+    "100 ml chicken or vegetable stock",
+    "100 g dried egg noodles",
+    "Chopped coriander (cilantro), to serve",
+    "Salt, to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan or wok. Add garlic, spring onion, ginger and chilli; cook 3-4 minutes over medium heat.",
+    "Add lime juice, then stir in prawns, coconut milk and stock. Simmer gently about 5 minutes until prawns are pink.",
+    "Meanwhile cook noodles in boiling water about 4 minutes; drain.",
+    "Add noodles to the laksa broth, season to taste, and serve topped with coriander."
+  ],
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 8,
+  "total_time_minutes": 18,
+  "servings": "1",
+  "tips": "Keep the simmer gentle so coconut milk doesn't split; adjust heat with more or fewer chilies and finish with extra lime if needed.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfoodme.com/recipes/prawn-and-coconut-laksa/",
+      "title": "Prawn & coconut laksa",
+      "publisher": "Good Food Middle East (BBC Good Food)"
+    }
+  ]
+}
+

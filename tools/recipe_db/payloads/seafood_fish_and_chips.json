@@ -1,0 +1,31 @@
+{
+  "ingredients": [
+    "About 1 litre sunflower oil (for frying)",
+    "2 thick skinless white fish fillets (whiting, ling, pollock, haddock or cod), about 150 g each",
+    "2 large Maris Piper potatoes",
+    "1 tsp malt vinegar (plus extra to serve)",
+    "Batter: 75 g self-raising flour (plus extra for dusting), 25 g cornflour, pinch ground turmeric, 125 g cold lager (or fizzy water), salt",
+    "Tartare sauce (optional): cornichons, capers, shallot, parsley, mayonnaise",
+    "Salt, to serve"
+  ],
+  "steps": [
+    "Cut potatoes into chips. Soak 5 minutes, rinse until water runs clear, then simmer in salted water with 1 tsp malt vinegar 10-12 minutes until just cooked. Drain and chill on a tray in a single layer.",
+    "Make batter by quickly mixing flours and turmeric with cold beer/fizzy water and a pinch of salt; do not overmix. Keep chilled.",
+    "Heat oil to about 180 C and fry chips 8-10 minutes until golden and crisp; drain on paper.",
+    "Increase oil to about 185 C. Dust fish in flour, dip in batter, and fry about 4 minutes, turning once, until deep golden and cooked through.",
+    "Serve fish with chips, salt and vinegar (and tartare sauce if using)."
+  ],
+  "prep_time_minutes": 25,
+  "cook_time_minutes": 30,
+  "total_time_minutes": 55,
+  "servings": "2",
+  "tips": "Keep batter cold for a crisp coating; do not overcrowd the pan so oil temperature stays high.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfood.com/recipes/next-level-fish-chips",
+      "title": "Classic fish & chips",
+      "publisher": "BBC Good Food"
+    }
+  ]
+}
+

@@ -1,0 +1,37 @@
+{
+  "ingredients": [
+    "4 oz cooked octopus, cut into small pieces",
+    "1 cup all-purpose flour",
+    "1 1/2 tsp baking powder",
+    "1/2 tsp salt",
+    "2 large eggs",
+    "1 1/2 cups dashi (or water plus instant dashi)",
+    "3 scallions, thinly sliced",
+    "2 tbsp pickled red ginger (beni shoga), minced (optional)",
+    "1/3 cup tenkasu (tempura bits)",
+    "Neutral oil, for takoyaki pan",
+    "Takoyaki sauce, for serving",
+    "Japanese mayonnaise, for serving",
+    "Aonori (seaweed flakes) and bonito flakes, for topping"
+  ],
+  "steps": [
+    "Heat a takoyaki pan over medium heat and generously oil each cavity.",
+    "Whisk flour, baking powder, and salt. In another bowl whisk eggs with dashi, then whisk into dry ingredients until just smooth.",
+    "Pour batter into cavities, slightly overflowing. Add octopus, scallions, pickled ginger, and tenkasu to each.",
+    "When edges set, use skewers to turn each ball 90 degrees; keep turning as it cooks so it forms a round ball and browns evenly (about 8-12 minutes total).",
+    "Serve hot topped with takoyaki sauce, Japanese mayo, aonori, and bonito flakes."
+  ],
+  "prep_time_minutes": 25,
+  "cook_time_minutes": 15,
+  "total_time_minutes": 40,
+  "servings": "24-40 pieces",
+  "tips": "Oil the pan well to prevent sticking; keep turning gradually so the uncooked batter becomes the outer shell.",
+  "sources": [
+    {
+      "url": "https://www.foodnetwork.com/recipes/food-network-kitchen/takoyaki-12358756",
+      "title": "Takoyaki",
+      "publisher": "Food Network"
+    }
+  ]
+}
+

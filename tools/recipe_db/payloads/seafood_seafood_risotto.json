@@ -1,0 +1,35 @@
+{
+  "ingredients": [
+    "1 onion, finely chopped",
+    "1 fennel bulb, finely sliced",
+    "1 tbsp olive oil",
+    "300 g risotto rice",
+    "500 ml fish stock (or vegetable stock)",
+    "300 g frozen seafood mix, defrosted",
+    "100 g frozen peas",
+    "3 tbsp grated parmesan",
+    "1 lemon, zest and juice",
+    "Handful parsley leaves, roughly chopped",
+    "Salt and black pepper, to taste"
+  ],
+  "steps": [
+    "Microwave onion and fennel with olive oil 5 minutes until softened.",
+    "Stir in rice and stock, cover and microwave on High 10 to 15 minutes until rice is almost cooked.",
+    "Stir in seafood and peas, cover and microwave 2 to 3 minutes until rice is cooked and seafood is hot.",
+    "Stir in parmesan and lemon juice; rest briefly.",
+    "Mix parsley with lemon zest and scatter over to serve."
+  ],
+  "prep_time_minutes": 10,
+  "cook_time_minutes": 20,
+  "total_time_minutes": 30,
+  "servings": "4",
+  "tips": "Defrost seafood thoroughly and drain well so the risotto doesn't turn watery; adjust stock to keep it creamy.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfoodme.com/recipes/easiestever-seafood-risotto/",
+      "title": "Easiest ever seafood risotto",
+      "publisher": "Good Food Middle East (BBC Good Food)"
+    }
+  ]
+}
+

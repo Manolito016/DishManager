@@ -1,0 +1,29 @@
+{
+  "ingredients": [
+    "8 pieces desalted cod (or salt cod soaked/desalted for about 48 hours, changing water several times)",
+    "400 ml olive oil",
+    "8 garlic cloves, sliced",
+    "1 dried chilli (or chilli flakes), to taste",
+    "Salt, if needed (often not needed if cod is salted)"
+  ],
+  "steps": [
+    "Warm olive oil in a pan over medium heat. Add garlic and chilli and cook until the garlic starts to brown; remove and reserve.",
+    "Take the pan off the heat and let oil cool slightly.",
+    "Add cod pieces to the oil (skin-side up) and gently cook about 5 minutes, keeping the heat low so oil doesn't bubble vigorously.",
+    "Move cod to a second pan. Add a few spoonfuls of oil, let rest briefly, then return to low heat and swirl the pan in circles to emulsify the sauce, gradually adding more oil until thickened (pil-pil).",
+    "Serve cod with the emulsified sauce and top with the reserved garlic and chilli."
+  ],
+  "prep_time_minutes": 30,
+  "cook_time_minutes": 15,
+  "total_time_minutes": 45,
+  "servings": "4",
+  "tips": "Keep the oil at low temperature so the sauce emulsifies instead of breaking; swirl the pan rather than stirring.",
+  "sources": [
+    {
+      "url": "https://www.doitinspain.com/en/bacalao-pil-pil/",
+      "title": "Bacalao al pil pil",
+      "publisher": "DoItInSpain"
+    }
+  ]
+}
+

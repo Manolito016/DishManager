@@ -1,0 +1,29 @@
+{
+  "ingredients": [
+    "1 tbsp vegetable oil",
+    "1 onion, thinly sliced",
+    "185 g sambal stir-fry paste (e.g., AYAM Malaysian Sambal Stir Fry Paste)",
+    "500 g raw prawns, peeled and deveined",
+    "Steamed rice, to serve"
+  ],
+  "steps": [
+    "Heat oil in a wok over medium-high heat.",
+    "Add onion and stir-fry about 2 minutes until softened.",
+    "Add sambal stir-fry paste, stir and bring to a simmer.",
+    "Add prawns and stir-fry until prawns are cooked through.",
+    "Serve hot with steamed rice."
+  ],
+  "prep_time_minutes": 5,
+  "cook_time_minutes": 10,
+  "total_time_minutes": 15,
+  "servings": "3-4",
+  "tips": "Do not overcook prawns; they are done once opaque and curled. Add a splash of water if sauce thickens too quickly.",
+  "sources": [
+    {
+      "url": "https://ayam.com/recipes/sambal-prawns",
+      "title": "Sambal Prawns",
+      "publisher": "Ayam"
+    }
+  ]
+}
+

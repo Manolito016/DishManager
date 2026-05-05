@@ -1,0 +1,28 @@
+# Dependencies
+/node_modules
+/backend/vendor
+/backend/node_modules
+/frontend/node_modules
+/electron/node_modules
+
+# Build artifacts
+/frontend/dist
+
+# Log files
+/backend/storage/logs/laravel.log
+
+# Database files
+*.sqlite
+*.sqlite-journal
+
+# Docx files
+*.docx
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Other
+.env

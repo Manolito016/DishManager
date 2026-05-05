@@ -1,0 +1,41 @@
+{
+  "ingredients": [
+    "2 onions, chopped",
+    "1 leek, white finely sliced (green top reserved if using for stock)",
+    "1 fennel bulb, chopped (fronds reserved for garnish)",
+    "4 garlic cloves, minced",
+    "4 tbsp olive oil",
+    "1 tbsp tomato puree",
+    "4 large ripe tomatoes, chopped (or canned tomatoes)",
+    "Large pinch saffron strands",
+    "3 bay leaves",
+    "Small bunch thyme",
+    "Parsley (stalks for stock, leaves chopped for serving)",
+    "2 strips orange peel (optional)",
+    "1 mild red chilli (optional)",
+    "2 tbsp Pernod (optional)",
+    "Fish stock (enough for a generous soup base)",
+    "Mixed seafood: firm white fish pieces plus shellfish (e.g., mussels, shrimp/prawns)",
+    "Salt and black pepper, to taste",
+    "To serve (optional but classic): rouille and toasted bread"
+  ],
+  "steps": [
+    "Make the soup base: saute onion, leek and fennel in olive oil until softened. Add garlic and tomato puree and cook briefly.",
+    "Add tomatoes, saffron, bay, thyme, parsley stalks, orange peel and chilli; cook down a few minutes, then add fish stock and simmer to develop flavor.",
+    "Add firm fish pieces first and simmer gently until nearly cooked, then add quicker-cooking seafood (shrimp/mussels) and cook just until done and mussels open (discard any that stay shut).",
+    "Taste and season, then serve hot with chopped herbs (and rouille + toast if using)."
+  ],
+  "prep_time_minutes": 60,
+  "cook_time_minutes": 60,
+  "total_time_minutes": 120,
+  "servings": "6",
+  "tips": "Keep the simmer gentle once seafood is added to avoid overcooking; add shellfish near the end.",
+  "sources": [
+    {
+      "url": "https://www.bbcgoodfoodme.com/recipes/bouillabaisse/",
+      "title": "Bouillabaisse",
+      "publisher": "Good Food Middle East (BBC Good Food)"
+    }
+  ]
+}
+

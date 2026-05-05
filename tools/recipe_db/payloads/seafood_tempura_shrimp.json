@@ -1,0 +1,37 @@
+{
+  "ingredients": [
+    "1 lb large shrimp, peeled and deveined (tails optional)",
+    "1/2 cup cornstarch or potato starch (for dredging)",
+    "1 cup all-purpose flour",
+    "1 tsp baking powder (optional for extra lightness)",
+    "1 large egg",
+    "1 cup ice-cold water",
+    "Neutral oil for deep-frying (enough for 2-3 inches depth)",
+    "Fine salt, to taste"
+  ],
+  "steps": [
+    "Pat shrimp very dry. If desired, make a few shallow cuts on the belly side so they fry straight.",
+    "Heat oil to about 350-375 F (175-190 C) in a deep pot.",
+    "Make batter: lightly whisk egg and ice-cold water, then gently stir in flour (and baking powder if using). Do not overmix; a few small lumps are fine.",
+    "Dredge shrimp in cornstarch, shake off excess, then dip in batter.",
+    "Fry in small batches 2-3 minutes until pale golden and crisp. Drain on a rack or paper towels; season with a pinch of salt."
+  ],
+  "prep_time_minutes": 20,
+  "cook_time_minutes": 10,
+  "total_time_minutes": 30,
+  "servings": "4",
+  "tips": "Keep batter cold and mix minimally to limit gluten; avoid crowding so oil temperature stays steady.",
+  "sources": [
+    {
+      "url": "https://www.kikkoman.com/en/cookbook/washoku/tempura.html",
+      "title": "Tempura Recipe (Japanese Deep Fried Vegetables and Shrimp)",
+      "publisher": "Kikkoman"
+    },
+    {
+      "url": "https://www.bristolfarms.com/recipes-container/shrimp-tempura",
+      "title": "Shrimp Tempura",
+      "publisher": "Bristol Farms"
+    }
+  ]
+}
+
