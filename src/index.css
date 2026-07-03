@@ -74,6 +74,111 @@ body {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* Scroll hint gradient for horizontal scroll containers */
+.scroll-hint {
+  position: relative;
+}
+.scroll-hint::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.06));
+  pointer-events: none;
+}
+.dark .scroll-hint::after {
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.2));
+}
+
+/* Loading skeleton pulse */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.15; }
+}
+.skeleton {
+  background: currentColor;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: 'Playfair Display SC', serif;
+  --font-body: 'Karla', sans-serif;
+
+  --color-primary: #9A3412;
+  --color-primary-light: #C2410C;
+  --color-primary-dark: #7C2D12;
+  --color-accent: #059669;
+  --color-accent-light: #10B981;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #1C1917;
+  --color-bg: #FFFBEB;
+  --color-bg-dark: #0C0A09;
+  --color-text: #1E293B;
+  --color-text-dark: #E7E5E4;
+  --color-muted: #78716C;
+  --color-muted-dark: #A8A29E;
+  --color-border: #E7E0DC;
+  --color-border-dark: #44403C;
+  --color-danger: #DC2626;
+  --color-success: #059669;
+}
+
+body {
+  margin: 0;
+  font-family: 'Karla', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition-property: background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6D3D1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #57534E;
+}
+
+/* Focus ring utility */
+*:focus-visible {
+  outline: 2px solid #9A3412;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));

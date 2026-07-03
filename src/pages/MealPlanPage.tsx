@@ -64,7 +64,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
               {activePlan.name}
             </h2>
 
-            <div className="overflow-x-auto rounded-2xl border border-border dark:border-border-dark shadow-sm">
+            <div className="overflow-x-auto scroll-hint rounded-2xl border border-border dark:border-border-dark shadow-sm">
               <table className="w-full border-collapse min-w-[700px]">
                 <thead>
                   <tr className="bg-primary text-white">

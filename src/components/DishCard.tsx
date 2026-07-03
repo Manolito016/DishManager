@@ -44,10 +44,7 @@ export default function DishCard({ dish, onDelete }: Props) {
             {dish.name}
           </h3>
         </Link>
-        <p className="text-sm text-muted dark:text-muted-dark line-clamp-2 mb-4 leading-relaxed">
-          {dish.description || 'No description'}
-        </p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-3">
           <Link
             to={`/dish/${dish.id}/edit`}
             className="flex-1 flex items-center justify-center gap-1.5 py-2 text-sm rounded-xl border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all duration-200 no-underline cursor-pointer"
