@@ -1,61 +1,32 @@
-# Dish Manager (Personal Cooking System)
+# React + TypeScript + Vite
 
-A desktop application to manage your personal recipes, built with Laravel, React, and Electron.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Tech Stack
-- **Backend:** Laravel (REST API, SQLite)
-- **Frontend:** React (Vite, Tailwind CSS, Axios, Lucide Icons)
-- **Desktop Wrapper:** Electron
+Currently, two official plugins are available:
 
-## Prerequisites
-- **PHP 8.2+** (with SQLite extension enabled)
-- **Composer**
-- **Node.js & npm**
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Getting Started
+## React Compiler
 
-### 1. Installation
-Install dependencies for all components:
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-```bash
-# Root dependencies
-npm install
+## Expanding the Oxlint configuration
 
-# Backend dependencies
-cd backend
-composer install
-cp .env.example .env
-php artisan key:generate
-touch database/database.sqlite
-php artisan migrate --seed
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-# Frontend dependencies
-cd ../frontend
-npm install
-
-# Electron dependencies
-cd ../electron
-npm install
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-### 2. Running in Development
-You can start the entire stack (Laravel, React Dev Server, and Electron) with a single command from the root folder:
-
-```bash
-npm run dev
-```
-
-### 3. Building for Production
-To build the frontend and package the Electron application:
-
-```bash
-npm run build:electron
-```
-The portable executable will be generated in the `electron/dist` folder.
-
-## Features
-- **Dish Management:** CRUD operations for your favorite meals.
-- **Dynamic Ingredients:** Add, edit, or remove ingredients per dish.
-- **Video Integration:** Embed YouTube tutorials directly in the dish detail view.
-- **Search & Filter:** Easily find dishes by name or category.
-- **Local Storage:** Everything is stored locally on your machine using SQLite.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
