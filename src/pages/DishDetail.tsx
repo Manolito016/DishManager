@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Pencil, Trash2, ExternalLink, UtensilsCrossed } from 'lucide-react';
+import { ArrowLeft, Pencil, Trash2, ExternalLink, UtensilsCrossed, Play } from 'lucide-react';
 import { useDish, useIngredients, deleteDish } from '../hooks/useDishes';
 import IngredientList from '../components/IngredientList';
 
@@ -44,13 +44,26 @@ export default function DishDetail() {
         {/* Header image / video */}
         <div className="aspect-video bg-bg dark:bg-bg-dark relative">
           {ytId ? (
-            <iframe
-              src={`https://www.youtube.com/embed/${ytId}`}
-              title={dish.name}
-              className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <a
+              href={`https://www.youtube.com/watch?v=${ytId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full h-full relative group cursor-pointer no-underline"
+            >
+              <img
+                src={`https://img.youtube.com/vi/${ytId}/mqdefault.jpg`}
+                alt={dish.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <Play size={22} className="text-white ml-1" fill="currentColor" />
+                </div>
+              </div>
+              <div className="absolute bottom-3 right-3 px-2 py-1 rounded-md bg-black/70 text-white text-xs font-medium flex items-center gap-1">
+                <ExternalLink size={11} /> YouTube
+              </div>
+            </a>
           ) : dish.imageUrl ? (
             <img src={dish.imageUrl} alt={dish.name} className="w-full h-full object-cover" />
           ) : (
@@ -60,13 +73,13 @@ export default function DishDetail() {
           )}
         </div>
 
-        <div className="p-6">
-          <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-4">
             <div>
               <span className="inline-block px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary mb-2">
                 {dish.category}
               </span>
-              <h2 className="text-3xl font-bold text-text dark:text-text-dark m-0 font-[family-name:var(--font-heading)]">{dish.name}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-text dark:text-text-dark m-0 font-[family-name:var(--font-heading)]">{dish.name}</h2>
             </div>
             <div className="flex gap-2 shrink-0">
               <Link

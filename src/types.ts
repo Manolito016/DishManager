@@ -18,14 +18,10 @@ export interface Ingredient {
 }
 
 export const CATEGORIES = [
-  'Appetizer',
-  'Breakfast',
-  'Lunch',
-  'Dinner',
-  'Dessert',
+  'Starter',
+  'Main Course',
   'Side Dish',
-  'Beverage',
-  'Snack',
+  'Dessert',
 ] as const;
 
 export const UNITS = [

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Save, ArrowLeft, Type, FileText, Tag, Image, Video, Search, X, Loader2 } from 'lucide-react';
+import { Save, ArrowLeft, Type, FileText, Tag, Image, Video, Search, X, Loader2, Play, ExternalLink } from 'lucide-react';
 import { CATEGORIES } from '../types';
 import type { Dish } from '../types';
 import { addDish, updateDish } from '../hooks/useDishes';
@@ -104,10 +104,10 @@ export default function DishForm({ existing }: Props) {
     const lower = apiCat.toLowerCase();
     const match = CATEGORIES.find((c) => c.toLowerCase() === lower);
     if (match) return match;
-    if (['seafood', 'chicken', 'beef', 'lamb', 'pork', 'vegetarian', 'vegan'].includes(lower)) return 'Lunch';
-    if (['starter', 'side'].includes(lower)) return 'Appetizer';
-    if (['breakfast'].includes(lower)) return 'Breakfast';
-    return CATEGORIES[0] as string;
+    if (['dessert', 'sweet'].some(k => lower.includes(k))) return 'Dessert';
+    if (['starter', 'appetizer', 'side'].some(k => lower.includes(k))) return 'Starter';
+    if (['side dish', 'salad', 'vegetarian'].some(k => lower.includes(k))) return 'Side Dish';
+    return 'Main Course';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -132,11 +132,11 @@ export default function DishForm({ existing }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-6 font-[family-name:var(--font-heading)]">
+      <h2 className="text-xl sm:text-2xl font-bold text-text dark:text-text-dark mb-4 sm:mb-6 font-[family-name:var(--font-heading)]">
         {existing ? 'Edit Dish' : 'Add New Dish'}
       </h2>
 
-      <div className="bg-surface dark:bg-surface-dark rounded-2xl border border-border dark:border-border-dark p-6 space-y-5">
+      <div className="bg-surface dark:bg-surface-dark rounded-2xl border border-border dark:border-border-dark p-4 sm:p-6 space-y-4 sm:space-y-5">
         {/* Dish Name with autocomplete */}
         <div ref={dropdownRef} className="relative">
           <label className="flex items-center gap-2 text-sm font-medium text-text dark:text-text-dark mb-1.5">
@@ -251,15 +251,26 @@ export default function DishForm({ existing }: Props) {
           />
           {videoId && (
             <div className="mt-3 relative group">
-              <div className="aspect-video rounded-xl overflow-hidden border border-border dark:border-border-dark bg-black">
-                <iframe
-                  src={`https://www.youtube.com/embed/${videoId}`}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="YouTube video preview"
+              <a
+                href={`https://www.youtube.com/watch?v=${videoId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block aspect-video rounded-xl overflow-hidden border border-border dark:border-border-dark bg-black relative no-underline"
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
+                  alt="Video preview"
+                  className="w-full h-full object-cover"
                 />
-              </div>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Play size={18} className="text-white ml-0.5" fill="currentColor" />
+                  </div>
+                </div>
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-black/70 text-white text-xs font-medium flex items-center gap-1">
+                  <ExternalLink size={10} /> YouTube
+                </div>
+              </a>
               <button
                 type="button"
                 onClick={() => setForm((f) => ({ ...f, videoUrl: '' }))}
@@ -273,7 +284,7 @@ export default function DishForm({ existing }: Props) {
         </div>
       </div>
 
-      <div className="flex gap-3 mt-6">
+      <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6">
         <button
           type="submit"
           className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-white font-medium hover:bg-primary-dark shadow-sm hover:shadow transition-all duration-200 cursor-pointer"

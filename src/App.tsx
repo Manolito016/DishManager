@@ -16,7 +16,7 @@ export default function App() {
       <BrowserRouter>
         <div className="min-h-screen bg-bg dark:bg-bg-dark transition-colors">
           <Header sidebarCollapsed={sidebarCollapsed} onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
-          <main className="max-w-6xl mx-auto px-4 py-6">
+          <main className="w-full mx-auto px-3 sm:px-6 py-4 sm:py-6">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/add" element={<AddDishPage />} />

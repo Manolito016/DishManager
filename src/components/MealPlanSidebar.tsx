@@ -42,7 +42,7 @@ export default function MealPlanSidebar({ plans, activePlanId, onSelect, collaps
 
   return (
     <aside
-      className={`shrink-0 border-r border-border dark:border-border-dark bg-surface dark:bg-surface-dark transition-all duration-300 flex flex-col ${
+      className={`shrink-0 border-r border-border dark:border-border-dark bg-surface dark:bg-surface-dark transition-all duration-300 flex flex-col h-full ${
         collapsed ? 'w-12' : 'w-64'
       }`}
     >

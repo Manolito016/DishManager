@@ -48,46 +48,61 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
   };
 
   return (
-    <div className="flex h-[calc(100dvh-4rem)] -m-6">
-      <MealPlanSidebar
-        plans={weeklyPlans}
-        activePlanId={activePlanId}
-        onSelect={setActivePlanId}
-        collapsed={sidebarCollapsed}
-        onToggle={onToggleSidebar}
-      />
+    <div className="flex h-[calc(100dvh-3.5rem)] sm:h-[calc(100dvh-4rem)] -mx-3 -mb-4 sm:-mx-6 sm:-mb-6">
+      {/* Mobile overlay backdrop */}
+      {!sidebarCollapsed && (
+        <div
+          className="fixed inset-0 z-30 bg-black/40 sm:hidden"
+          onClick={onToggleSidebar}
+        />
+      )}
 
-      <div className="flex-1 overflow-auto p-6">
+      {/* Sidebar: overlay on mobile, inline on desktop */}
+      <div className={`z-40 ${
+        sidebarCollapsed
+          ? 'hidden sm:block'
+          : 'fixed inset-y-0 left-0 sm:relative sm:inset-y-auto'
+      }`}>
+        <MealPlanSidebar
+          plans={weeklyPlans}
+          activePlanId={activePlanId}
+          onSelect={(id) => { setActivePlanId(id); onToggleSidebar(); }}
+          collapsed={sidebarCollapsed}
+          onToggle={onToggleSidebar}
+        />
+      </div>
+
+      <div className="flex-1 overflow-auto p-4 sm:p-6">
         {activePlan ? (
           <>
-            <h2 className="text-2xl font-bold text-text dark:text-text-dark mb-6 font-[family-name:var(--font-heading)]">
+            <h2 className="text-xl sm:text-2xl font-bold text-text dark:text-text-dark mb-4 sm:mb-6 font-[family-name:var(--font-heading)]">
               {activePlan.name}
             </h2>
 
-            <div className="overflow-x-auto scroll-hint rounded-2xl border border-border dark:border-border-dark shadow-sm">
-              <table className="w-full border-collapse min-w-[700px]">
+            <div className="overflow-x-auto scroll-hint rounded-xl sm:rounded-2xl border border-border dark:border-border-dark shadow-sm">
+              <table className="w-full border-collapse min-w-[600px]">
                 <thead>
                   <tr className="bg-primary text-white">
-                    <th className="px-4 py-3.5 text-left font-semibold w-[140px]">Day</th>
-                    <th className="px-4 py-3.5 text-center font-semibold">Lunch</th>
-                    <th className="px-4 py-3.5 text-center font-semibold">Dinner</th>
+                    <th className="px-3 sm:px-4 py-2.5 sm:py-3.5 text-left font-semibold text-sm w-[100px] sm:w-[140px]">Day</th>
+                    <th className="px-2 sm:px-4 py-2.5 sm:py-3.5 text-center font-semibold text-sm">Lunch</th>
+                    <th className="px-2 sm:px-4 py-2.5 sm:py-3.5 text-center font-semibold text-sm">Dinner</th>
                   </tr>
                 </thead>
                 <tbody>
                   {DAYS.map((day, di) => (
                     <tr key={day} className={di % 2 === 0 ? 'bg-surface dark:bg-surface-dark' : 'bg-bg dark:bg-bg-dark'}>
-                      <td className="px-4 py-3 font-semibold text-text dark:text-text-dark border-r border-border dark:border-border-dark align-top">
+                      <td className="px-3 sm:px-4 py-2 sm:py-3 font-semibold text-sm sm:text-base text-text dark:text-text-dark border-r border-border dark:border-border-dark align-top">
                         {day}
                       </td>
                       {MEAL_TIMES.map((mealTime) => (
-                        <td key={mealTime} className="px-3 py-3 border-r border-border dark:border-border-dark last:border-r-0 align-top">
-                          <div className="space-y-1.5">
+                        <td key={mealTime} className="px-2 sm:px-3 py-2 sm:py-3 border-r border-border dark:border-border-dark last:border-r-0 align-top">
+                          <div className="space-y-1 sm:space-y-1.5">
                             {COURSE_TYPES.map((courseType) => {
                               const dishId = getDishId(day, mealTime, courseType);
                               const dishName = getDishName(dishId);
                               return (
-                                <div key={courseType} className="flex items-center gap-1.5 group">
-                                  <span className="text-xs text-muted dark:text-muted-dark w-[80px] shrink-0 font-medium">
+                                <div key={courseType} className="flex items-center gap-1 sm:gap-1.5 group">
+                                  <span className="text-[10px] sm:text-xs text-muted dark:text-muted-dark w-[60px] sm:w-[80px] shrink-0 font-medium">
                                     {courseType}
                                   </span>
                                   {dishName ? (
