@@ -104,3 +104,16 @@ body {
   animation: skeleton-pulse 1.5s ease-in-out infinite;
   border-radius: 8px;
 }
+
+/* Toast slide-in */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Print styles */
+@media print {
+  header, .no-print { display: none !important; }
+  main { padding: 0 !important; }
+  .print-only { display: block !important; }
+}

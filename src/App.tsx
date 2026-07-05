@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { ToastProvider } from './context/ToastContext';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import AddDishPage from './pages/AddDishPage';
@@ -13,7 +14,8 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <ToastProvider>
+        <BrowserRouter>
         <div className="min-h-screen bg-bg dark:bg-bg-dark transition-colors">
           <Header sidebarCollapsed={sidebarCollapsed} onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
           <main className="w-full mx-auto px-3 sm:px-6 py-4 sm:py-6">
@@ -27,6 +29,7 @@ export default function App() {
           </main>
         </div>
       </BrowserRouter>
+      </ToastProvider>
     </ThemeProvider>
   );
 }

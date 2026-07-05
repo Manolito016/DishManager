@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Pencil, Trash2, ExternalLink, UtensilsCrossed, Play } from 'lucide-react';
 import { useDish, useIngredients, deleteDish } from '../hooks/useDishes';
+import { useToast } from '../context/ToastContext';
 import IngredientList from '../components/IngredientList';
 
 function extractYouTubeId(url: string): string | null {
@@ -15,12 +16,21 @@ export default function DishDetail() {
   const dishId = id ? parseInt(id) : undefined;
   const dish = useDish(dishId);
   const ingredients = useIngredients(dishId);
+  const { toast, confirm } = useToast();
 
   if (!dish) {
     return (
-      <div className="text-center py-20">
-        <p className="text-muted dark:text-muted-dark text-lg">Dish not found.</p>
-        <Link to="/" className="text-primary hover:underline mt-2 inline-block">← Back to dishes</Link>
+      <div className="max-w-4xl mx-auto">
+        <div className="skeleton h-4 w-24 mb-4 text-muted" />
+        <div className="bg-surface dark:bg-surface-dark rounded-2xl border border-border dark:border-border-dark overflow-hidden">
+          <div className="skeleton aspect-video w-full text-muted" />
+          <div className="p-4 sm:p-6 space-y-4">
+            <div className="skeleton h-5 w-20 rounded-full text-muted" />
+            <div className="skeleton h-8 w-64 text-muted" />
+            <div className="skeleton h-4 w-full text-muted" />
+            <div className="skeleton h-4 w-3/4 text-muted" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -28,8 +38,9 @@ export default function DishDetail() {
   const ytId = extractYouTubeId(dish.videoUrl);
 
   const handleDelete = async () => {
-    if (dish.id && confirm('Delete this dish and all its ingredients?')) {
+    if (dish.id && await confirm('Delete this dish and all its ingredients?')) {
       await deleteDish(dish.id);
+      toast('Dish deleted', 'success');
       navigate('/');
     }
   };

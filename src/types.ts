@@ -59,6 +59,6 @@ export const DAYS = [
 export type Day = (typeof DAYS)[number];
 
 /** Meal time slots */
-export const MEAL_TIMES = ['Lunch', 'Dinner'] as const;
+export const MEAL_TIMES = ['Breakfast', 'Lunch', 'Dinner'] as const;
 
 export type MealTime = (typeof MEAL_TIMES)[number];

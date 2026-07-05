@@ -4,6 +4,7 @@ import { Save, ArrowLeft, Type, FileText, Tag, Image, Video, Search, X, Loader2,
 import { CATEGORIES } from '../types';
 import type { Dish, Category } from '../types';
 import { addDish, updateDish } from '../hooks/useDishes';
+import { useToast } from '../context/ToastContext';
 
 interface Props {
   existing?: Dish;
@@ -20,6 +21,7 @@ interface RecipeResult {
 
 export default function DishForm({ existing }: Props) {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -114,8 +116,10 @@ export default function DishForm({ existing }: Props) {
     e.preventDefault();
     if (existing?.id) {
       await updateDish(existing.id, form);
+      toast('Dish updated!', 'success');
     } else {
       await addDish(form);
+      toast('Dish added!', 'success');
     }
     navigate('/');
   };

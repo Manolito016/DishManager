@@ -97,3 +97,14 @@ export async function setMealPlanDish(planId: number, day: Day, mealTime: MealTi
 export async function clearMealPlanSlot(planId: number, day: Day, mealTime: MealTime, courseType: Category) {
   return db.mealPlan.where({ planId, day, mealTime, courseType }).delete();
 }
+
+/** Get all ingredients for a set of dish IDs (for shopping list) */
+export async function getIngredientsForDishes(dishIds: number[]): Promise<Ingredient[]> {
+  if (dishIds.length === 0) return [];
+  const allIngredients: Ingredient[] = [];
+  for (const id of dishIds) {
+    const ings = await db.ingredients.where('dishId').equals(id).toArray();
+    allIngredients.push(...ings);
+  }
+  return allIngredients;
+}

@@ -44,6 +44,9 @@ export default function DishCard({ dish, onDelete }: Props) {
             {dish.name}
           </h3>
         </Link>
+        {dish.description && (
+          <p className="text-sm text-muted dark:text-muted-dark line-clamp-2 mb-3 leading-relaxed">{dish.description}</p>
+        )}
         <div className="flex gap-2 mt-3">
           <Link
             to={`/dish/${dish.id}/edit`}

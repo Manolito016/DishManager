@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Plus, Pencil, Trash2, Check, X, CalendarDays } from 'lucide-react';
 import type { WeeklyPlan } from '../types';
 import { createWeeklyPlan, deleteWeeklyPlan, renameWeeklyPlan } from '../hooks/useDishes';
+import { useToast } from '../context/ToastContext';
 
 interface Props {
   plans: WeeklyPlan[];
@@ -14,6 +15,7 @@ interface Props {
 export default function MealPlanSidebar({ plans, activePlanId, onSelect, collapsed }: Props) {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editName, setEditName] = useState('');
+  const { toast, confirm } = useToast();
 
   const handleAdd = async () => {
     const name = `Week ${plans.length + 1}`;
@@ -30,8 +32,9 @@ export default function MealPlanSidebar({ plans, activePlanId, onSelect, collaps
   };
 
   const handleDelete = async (id: number) => {
-    if (confirm('Delete this weekly plan and all its meals?')) {
+    if (await confirm('Delete this weekly plan and all its meals?')) {
       await deleteWeeklyPlan(id);
+      toast('Plan deleted', 'success');
     }
   };
 

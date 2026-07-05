@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, UtensilsCrossed } from 'lucide-react';
 import { useDishes, deleteDish } from '../hooks/useDishes';
+import { useToast } from '../context/ToastContext';
 import SearchBar from '../components/SearchBar';
 import DishCard from '../components/DishCard';
 
@@ -9,10 +10,12 @@ export default function HomePage() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const dishes = useDishes(search, category);
+  const { toast, confirm } = useToast();
 
   const handleDelete = async (id: number) => {
-    if (confirm('Delete this dish and all its ingredients?')) {
+    if (await confirm('Delete this dish and all its ingredients?')) {
       await deleteDish(id);
+      toast('Dish deleted', 'success');
     }
   };
 

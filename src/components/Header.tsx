@@ -10,7 +10,6 @@ interface Props {
 export default function Header({ sidebarCollapsed, onToggleSidebar }: Props) {
   const { theme, toggle } = useTheme();
   const location = useLocation();
-  const showSidebarToggle = location.pathname === '/meal-plan';
 
   const navItem = (to: string, label: string, Icon: typeof Utensils) => {
     const active = location.pathname === to;
@@ -33,15 +32,13 @@ export default function Header({ sidebarCollapsed, onToggleSidebar }: Props) {
     <header className="sticky top-0 z-50 bg-surface/95 dark:bg-surface-dark/95 backdrop-blur-md border-b border-border dark:border-border-dark">
       <div className="w-full px-3 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {showSidebarToggle && (
-            <button
-              onClick={onToggleSidebar}
-              className="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-primary/10 transition-all duration-200 cursor-pointer text-muted dark:text-muted-dark hover:text-primary"
-              aria-label={sidebarCollapsed ? 'Open sidebar' : 'Close sidebar'}
-            >
-              {sidebarCollapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
-            </button>
-          )}
+          <button
+            onClick={onToggleSidebar}
+            className="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-primary/10 transition-all duration-200 cursor-pointer text-muted dark:text-muted-dark hover:text-primary"
+            aria-label={sidebarCollapsed ? 'Open sidebar' : 'Close sidebar'}
+          >
+            {sidebarCollapsed ? <PanelLeftOpen size={18} /> : <PanelLeftClose size={18} />}
+          </button>
           <Link to="/" className="flex items-center gap-2 sm:gap-2.5 no-underline group">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-200">
               <ChefHat size={18} className="text-white" />
