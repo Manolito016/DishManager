@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Plus, X, CalendarDays, Search, ShoppingCart, Printer } from 'lucide-react';
+import { Plus, X, CalendarDays, Search, ShoppingCart, Printer, Shuffle, Copy } from 'lucide-react';
 import { DAYS, MEAL_TIMES, CATEGORIES } from '../types';
 import type { Day, MealTime, Category, Ingredient } from '../types';
-import { useDishes, useMealPlan, useWeeklyPlans, setMealPlanDish, clearMealPlanSlot, getIngredientsForDishes } from '../hooks/useDishes';
+import { useDishes, useMealPlan, useWeeklyPlans, setMealPlanDish, clearMealPlanSlot, getIngredientsForDishes, autoFillMealPlan, copyWeeklyPlan } from '../hooks/useDishes';
 import { useToast } from '../context/ToastContext';
 import MealPlanSidebar from '../components/MealPlanSidebar';
 
@@ -19,7 +19,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
   const [picker, setPicker] = useState<{ day: Day; mealTime: MealTime; courseType: Category } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [shoppingList, setShoppingList] = useState<Ingredient[] | null>(null);
-  const { toast } = useToast();
+  const { toast, confirm } = useToast();
 
   // Auto-select first plan when plans load (no auto-create)
   useEffect(() => {
@@ -59,6 +59,21 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
 
   const handlePrint = () => window.print();
 
+  const handleAutoFill = async () => {
+    if (!activePlanId) return;
+    if (await confirm('Auto-fill this meal plan with random dishes? This will overwrite existing assignments.')) {
+      await autoFillMealPlan(activePlanId);
+      toast('Meal plan auto-filled!', 'success');
+    }
+  };
+
+  const handleCopyPlan = async () => {
+    if (!activePlanId || !activePlan) return;
+    const newName = `${activePlan.name} (copy)`;
+    await copyWeeklyPlan(activePlanId, newName);
+    toast('Plan copied!', 'success');
+  };
+
   return (
     <div className="flex h-[calc(100dvh-3.5rem)] sm:h-[calc(100dvh-4rem)] -mx-3 -mb-4 sm:-mx-6 sm:-mb-6">
       {/* Mobile overlay backdrop */}
@@ -91,7 +106,15 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
               <h2 className="text-xl sm:text-2xl font-bold text-text dark:text-text-dark m-0 font-[family-name:var(--font-heading)]">
                 {activePlan.name}
               </h2>
-              <div className="flex gap-2 no-print">
+              <div className="flex gap-2 no-print flex-wrap">
+                <button onClick={handleAutoFill}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-xl border border-border dark:border-border-dark text-text dark:text-text-dark hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 cursor-pointer">
+                  <Shuffle size={14} /> Auto-Fill
+                </button>
+                <button onClick={handleCopyPlan}
+                  className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-xl border border-border dark:border-border-dark text-text dark:text-text-dark hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 cursor-pointer">
+                  <Copy size={14} /> Copy Plan
+                </button>
                 <button
                   onClick={handleShoppingList}
                   className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-xl border border-border dark:border-border-dark text-text dark:text-text-dark hover:bg-primary hover:text-white hover:border-primary transition-all duration-200 cursor-pointer"

@@ -1,6 +1,6 @@
 import { useTheme } from '../context/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
-import { Sun, Moon, ChefHat, Utensils, CalendarDays, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { Sun, Moon, ChefHat, Utensils, CalendarDays, Settings, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 interface Props {
   sidebarCollapsed: boolean;
@@ -52,6 +52,7 @@ export default function Header({ sidebarCollapsed, onToggleSidebar }: Props) {
         <nav className="flex items-center gap-1 sm:gap-1.5">
           {navItem('/', 'Dishes', Utensils)}
           {navItem('/meal-plan', 'Meal Plan', CalendarDays)}
+          {navItem('/settings', 'Settings', Settings)}
           <div className="hidden sm:block w-px h-6 bg-border dark:bg-border-dark mx-1" />
           <button
             onClick={toggle}
