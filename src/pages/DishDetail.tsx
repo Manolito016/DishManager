@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Pencil, Trash2, ExternalLink, UtensilsCrossed, Play } from 'lucide-react';
+import { ArrowLeft, Pencil, Trash2, ExternalLink, UtensilsCrossed } from 'lucide-react';
 import { useDish, useIngredients, deleteDish } from '../hooks/useDishes';
 import { useToast } from '../context/ToastContext';
 import IngredientList from '../components/IngredientList';
@@ -55,26 +55,13 @@ export default function DishDetail() {
         {/* Header image / video */}
         <div className="aspect-video bg-bg dark:bg-bg-dark relative">
           {ytId ? (
-            <a
-              href={`https://www.youtube.com/watch?v=${ytId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full h-full relative group cursor-pointer no-underline"
-            >
-              <img
-                src={`https://img.youtube.com/vi/${ytId}/mqdefault.jpg`}
-                alt={dish.name}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play size={22} className="text-white ml-1" fill="currentColor" />
-                </div>
-              </div>
-              <div className="absolute bottom-3 right-3 px-2 py-1 rounded-md bg-black/70 text-white text-xs font-medium flex items-center gap-1">
-                <ExternalLink size={11} /> YouTube
-              </div>
-            </a>
+            <iframe
+              src={`https://www.youtube.com/embed/${ytId}?rel=0&modestbranding=1`}
+              title={`${dish.name} video`}
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           ) : dish.imageUrl ? (
             <img src={dish.imageUrl} alt={dish.name} className="w-full h-full object-cover" />
           ) : (
