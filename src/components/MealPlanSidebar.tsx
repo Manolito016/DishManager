@@ -11,7 +11,7 @@ interface Props {
   onToggle: () => void;
 }
 
-export default function MealPlanSidebar({ plans, activePlanId, onSelect, collapsed, onToggle }: Props) {
+export default function MealPlanSidebar({ plans, activePlanId, onSelect, collapsed }: Props) {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editName, setEditName] = useState('');
 

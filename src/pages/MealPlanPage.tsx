@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, X, CalendarDays, Search } from 'lucide-react';
-import { DAYS, MEAL_TIMES, COURSE_TYPES } from '../types';
+import { DAYS, MEAL_TIMES, CATEGORIES } from '../types';
+import type { Day, MealTime, Category } from '../types';
 import { useDishes, useMealPlan, useWeeklyPlans, setMealPlanDish, clearMealPlanSlot } from '../hooks/useDishes';
 import MealPlanSidebar from '../components/MealPlanSidebar';
 
@@ -14,7 +15,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
   const weeklyPlans = useWeeklyPlans();
   const [activePlanId, setActivePlanId] = useState<number | undefined>(undefined);
   const plan = useMealPlan(activePlanId);
-  const [picker, setPicker] = useState<{ day: string; mealTime: string; courseType: string } | null>(null);
+  const [picker, setPicker] = useState<{ day: Day; mealTime: MealTime; courseType: Category } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   // Auto-select first plan when plans load (no auto-create)
@@ -26,7 +27,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
 
   const activePlan = weeklyPlans.find((p) => p.id === activePlanId);
 
-  const getDishId = (day: string, mealTime: string, courseType: string) => {
+  const getDishId = (day: Day, mealTime: MealTime, courseType: Category) => {
     const entry = plan.find((e) => e.day === day && e.mealTime === mealTime && e.courseType === courseType);
     return entry?.dishId;
   };
@@ -42,7 +43,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
     setPicker(null);
   };
 
-  const handleClear = async (day: string, mealTime: string, courseType: string) => {
+  const handleClear = async (day: Day, mealTime: MealTime, courseType: Category) => {
     if (!activePlanId) return;
     await clearMealPlanSlot(activePlanId, day, mealTime, courseType);
   };
@@ -97,7 +98,7 @@ export default function MealPlanPage({ sidebarCollapsed, onToggleSidebar }: Prop
                       {MEAL_TIMES.map((mealTime) => (
                         <td key={mealTime} className="px-2 sm:px-3 py-2 sm:py-3 border-r border-border dark:border-border-dark last:border-r-0 align-top">
                           <div className="space-y-1 sm:space-y-1.5">
-                            {COURSE_TYPES.map((courseType) => {
+                            {CATEGORIES.map((courseType) => {
                               const dishId = getDishId(day, mealTime, courseType);
                               const dishName = getDishName(dishId);
                               return (

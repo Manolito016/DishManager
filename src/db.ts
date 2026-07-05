@@ -9,22 +9,11 @@ export class DishManagerDB extends Dexie {
 
   constructor() {
     super('dishManagerDB');
-    this.version(3).stores({
+    this.version(1).stores({
       dishes: '++id, name, category, createdAt',
       ingredients: '++id, dishId, name',
       mealPlan: '++id, planId, day, mealTime, courseType, dishId',
       weeklyPlans: '++id, name, createdAt',
-    });
-    this.version(4).stores({
-      dishes: '++id, name, category, createdAt',
-      ingredients: '++id, dishId, name',
-      mealPlan: '++id, planId, day, mealTime, courseType, dishId',
-      weeklyPlans: '++id, name, createdAt',
-    }).upgrade((tx) => {
-      // Clear duplicate weekly plans and orphaned meal entries
-      return tx.table('weeklyPlans').clear().then(() => {
-        return tx.table('mealPlan').clear();
-      });
     });
   }
 }

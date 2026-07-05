@@ -1,6 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db';
-import type { Dish, Ingredient } from '../types';
+import type { Dish, Ingredient, Day, MealTime, Category } from '../types';
 
 export function useDishes(search = '', category = '') {
   const dishes = useLiveQuery(async () => {
@@ -84,7 +84,7 @@ export function useMealPlan(planId: number | undefined) {
   return entries ?? [];
 }
 
-export async function setMealPlanDish(planId: number, day: string, mealTime: string, courseType: string, dishId: number) {
+export async function setMealPlanDish(planId: number, day: Day, mealTime: MealTime, courseType: Category, dishId: number) {
   const existing = await db.mealPlan
     .where({ planId, day, mealTime, courseType })
     .first();
@@ -94,6 +94,6 @@ export async function setMealPlanDish(planId: number, day: string, mealTime: str
   return db.mealPlan.add({ planId, day, mealTime, courseType, dishId });
 }
 
-export async function clearMealPlanSlot(planId: number, day: string, mealTime: string, courseType: string) {
+export async function clearMealPlanSlot(planId: number, day: Day, mealTime: MealTime, courseType: Category) {
   return db.mealPlan.where({ planId, day, mealTime, courseType }).delete();
 }

@@ -1,14 +1,16 @@
+/** Core dish entity stored in IndexedDB */
 export interface Dish {
   id?: number;
   name: string;
   description: string;
-  category: string;
+  category: Category;
   imageUrl: string;
   videoUrl: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
+/** Ingredient linked to a dish */
 export interface Ingredient {
   id?: number;
   dishId: number;
@@ -17,6 +19,24 @@ export interface Ingredient {
   unit: string;
 }
 
+/** A weekly meal plan containing meal entries */
+export interface WeeklyPlan {
+  id?: number;
+  name: string;
+  createdAt: Date;
+}
+
+/** Single meal slot in a weekly plan */
+export interface MealPlanEntry {
+  id?: number;
+  planId: number;
+  day: Day;
+  mealTime: MealTime;
+  courseType: Category;
+  dishId: number;
+}
+
+/** The four fixed dish/meal categories */
 export const CATEGORIES = [
   'Starter',
   'Main Course',
@@ -24,29 +44,21 @@ export const CATEGORIES = [
   'Dessert',
 ] as const;
 
+export type Category = (typeof CATEGORIES)[number];
+
+/** Available measurement units for ingredients */
 export const UNITS = [
   'g', 'kg', 'ml', 'l', 'tsp', 'tbsp', 'cup', 'oz', 'lb', 'piece', 'pinch', 'whole',
 ] as const;
 
+/** Days of the week for meal planning */
 export const DAYS = [
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
 ] as const;
 
+export type Day = (typeof DAYS)[number];
+
+/** Meal time slots */
 export const MEAL_TIMES = ['Lunch', 'Dinner'] as const;
 
-export const COURSE_TYPES = ['Starter', 'Main Course', 'Side Dish', 'Dessert'] as const;
-
-export interface MealPlanEntry {
-  id?: number;
-  planId: number;     // reference to a WeeklyPlan
-  day: string;        // e.g. 'Monday'
-  mealTime: string;   // 'Lunch' | 'Dinner'
-  courseType: string; // 'Starter' | 'Main Course' | 'Side Dish' | 'Dessert'
-  dishId: number;     // reference to a Dish
-}
-
-export interface WeeklyPlan {
-  id?: number;
-  name: string;
-  createdAt: Date;
-}
+export type MealTime = (typeof MEAL_TIMES)[number];

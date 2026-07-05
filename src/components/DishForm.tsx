@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Save, ArrowLeft, Type, FileText, Tag, Image, Video, Search, X, Loader2, Play, ExternalLink } from 'lucide-react';
 import { CATEGORIES } from '../types';
-import type { Dish } from '../types';
+import type { Dish, Category } from '../types';
 import { addDish, updateDish } from '../hooks/useDishes';
 
 interface Props {
@@ -23,7 +23,7 @@ export default function DishForm({ existing }: Props) {
   const [form, setForm] = useState({
     name: '',
     description: '',
-    category: CATEGORIES[0] as string,
+    category: CATEGORIES[0] as Category,
     imageUrl: '',
     videoUrl: '',
   });
@@ -100,13 +100,13 @@ export default function DishForm({ existing }: Props) {
     setShowDropdown(false);
   };
 
-  const mapCategory = (apiCat: string): string => {
+  const mapCategory = (apiCat: string): Category => {
     const lower = apiCat.toLowerCase();
     const match = CATEGORIES.find((c) => c.toLowerCase() === lower);
     if (match) return match;
     if (['dessert', 'sweet'].some(k => lower.includes(k))) return 'Dessert';
-    if (['starter', 'appetizer', 'side'].some(k => lower.includes(k))) return 'Starter';
-    if (['side dish', 'salad', 'vegetarian'].some(k => lower.includes(k))) return 'Side Dish';
+    if (['starter', 'appetizer'].some(k => lower.includes(k))) return 'Starter';
+    if (['side', 'salad'].some(k => lower.includes(k))) return 'Side Dish';
     return 'Main Course';
   };
 
@@ -123,9 +123,16 @@ export default function DishForm({ existing }: Props) {
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  const extractYouTubeId = (url: string): string | null => {
-    const match = url.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([a-zA-Z0-9_-]{11})/);
-    return match?.[1] ?? null;
+  const extractYouTubeId = (url: string): string | null =>
+    url.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([a-zA-Z0-9_-]{11})/)?.[1] ?? null;
+
+  /** YouTube dual-mode: paste URL → auto-preview; type query + Enter → search */
+  const handleVideoChange = (val: string) => setForm((f) => ({ ...f, videoUrl: val }));
+  const handleVideoKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && form.videoUrl.trim()) {
+      e.preventDefault();
+      window.open(`https://www.youtube.com/results?search_query=${encodeURIComponent(form.videoUrl)}`, '_blank');
+    }
   };
 
   const videoId = extractYouTubeId(form.videoUrl);
@@ -237,31 +244,24 @@ export default function DishForm({ existing }: Props) {
           )}
         </div>
 
-        {/* YouTube Video */}
+        {/* YouTube Video — dual-mode: type query + Enter to search, paste URL for preview */}
         <div>
           <label className="flex items-center gap-2 text-sm font-medium text-text dark:text-text-dark mb-1.5">
             <Video size={14} className="text-muted" /> YouTube Video
           </label>
           <input
-            type="url"
+            type="text"
             value={form.videoUrl}
-            onChange={set('videoUrl')}
-            placeholder="Paste YouTube URL here..."
+            onChange={(e) => handleVideoChange(e.target.value)}
+            onKeyDown={handleVideoKey}
+            placeholder="Paste URL or type query + Enter to search..."
             className="w-full px-4 py-2.5 rounded-xl border border-border dark:border-border-dark bg-bg dark:bg-bg-dark text-text dark:text-text-dark placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all duration-200"
           />
           {videoId && (
             <div className="mt-3 relative group">
-              <a
-                href={`https://www.youtube.com/watch?v=${videoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block aspect-video rounded-xl overflow-hidden border border-border dark:border-border-dark bg-black relative no-underline"
-              >
-                <img
-                  src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
-                  alt="Video preview"
-                  className="w-full h-full object-cover"
-                />
+              <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer"
+                className="block aspect-video rounded-xl overflow-hidden border border-border dark:border-border-dark bg-black relative no-underline">
+                <img src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} alt="Video preview" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
                   <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <Play size={18} className="text-white ml-0.5" fill="currentColor" />
@@ -271,12 +271,8 @@ export default function DishForm({ existing }: Props) {
                   <ExternalLink size={10} /> YouTube
                 </div>
               </a>
-              <button
-                type="button"
-                onClick={() => setForm((f) => ({ ...f, videoUrl: '' }))}
-                className="absolute top-2 right-2 p-1 rounded-full bg-black/60 text-white opacity-0 group-hover:opacity-100 hover:bg-black/80 transition-all cursor-pointer"
-                title="Remove video"
-              >
+              <button type="button" onClick={() => setForm((f) => ({ ...f, videoUrl: '' }))}
+                className="absolute top-2 right-2 p-1 rounded-full bg-black/60 text-white opacity-0 group-hover:opacity-100 hover:bg-black/80 transition-all cursor-pointer" title="Remove video">
                 <X size={14} />
               </button>
             </div>
